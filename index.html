@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Board</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      /* Responsive Utility */
+      .flex-wrap {
+        flex-wrap: wrap;
+      }
+      .responsive-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
+      @media (max-width: 1024px) {
+        .responsive-section {
+          padding: 0 8px;
+        }
+      }
+      /* Responsive Flex */
+      .responsive-flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      /* Stack columns on mobile */
+      @media (max-width: 900px) {
+        .responsive-flex {
+          flex-direction: column !important;
+          align-items: stretch !important;
+        }
+        .responsive-flex > div,
+        .responsive-flex > section,
+        .responsive-flex > .flex-child {
+          max-width: 100% !important;
+          min-width: 0 !important;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+        }
+      }
+      /* Images responsive */
+      img, video {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      /* Responsive text */
+      h1, h2, h3, h4 {
+        word-break: break-word;
+      }
+      @media (max-width: 600px) {
+        h1 { font-size: 1.7rem !important; }
+        h2 { font-size: 1.2rem !important; }
+        h3 { font-size: 1rem !important; }
+        .responsive-btns a, .responsive-btns button {
+          font-size: 0.95rem !important;
+          padding: 10px 18px !important;
+        }
+      }
+      /* Responsive Buttons */
+      .responsive-btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      /* Responsive Blog Cards */
+      .blog-cards {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        flex-wrap: wrap;
+        margin-bottom: 32px;
+      }
+      @media (max-width: 900px) {
+        .blog-cards {
+          gap: 16px;
+        }
+      }
+      @media (max-width: 600px) {
+        .blog-cards {
+          flex-direction: column;
+          gap: 18px;
+        }
+      }
+      /* Responsive Footer */
+      footer .footer-flex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 0 16px;
+      }
+      @media (max-width: 900px) {
+        footer .footer-flex {
+          flex-direction: column;
+          gap: 32px;
+        }
+      }
+      /* Responsive Navigation */
+      nav {
+        flex-wrap: wrap;
+        overflow-x: auto;
+      }
+      @media (max-width: 900px) {
+        nav {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 0 8px !important;
+        }
+        nav a {
+          margin: 8px 0 !important;
+        }
+      }
+      /* Responsive Section Padding */
+      section, footer {
+        box-sizing: border-box;
+      }
+      @media (max-width: 600px) {
+        section, footer {
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+        }
+      }
+      /* Responsive for CTA bubbles */
+      .bubble-img {
+        max-width: 100px !important;
+        width: 22vw !important;
+      }
+      @media (max-width: 600px) {
+        .bubble-img {
+          display: none !important;
+        }
+      }
+      /* Responsive for CTA illustration */
+      .cta-illustration {
+        max-width: 180px !important;
+        margin-bottom: 18px;
+      }
+      @media (max-width: 600px) {
+        .cta-illustration {
+          max-width: 120px !important;
+        }
+      }
+      /* Responsive for blog arrows */
+      .blog-arrow {
+        display: none;
+      }
+      @media (min-width: 700px) {
+        .blog-arrow {
+          display: block;
+        }
+      }
+    </style>
+</head>
+<body>
+<!-- Hero Section Start -->
+<section style="background: linear-gradient(135deg, #0a57e3 0%, #0a3fae 100%); color: #fff; padding: 40px 0 60px 0; border: 3px solid #4bb3fd; border-radius: 8px; font-family: 'Segoe UI', Arial, sans-serif;">
+  <!-- Navigation Bar -->
+  <nav class="responsive-flex" style="position:absolute; top:24px; left:0; width:100%; max-width:1200px; margin:0 auto; display:flex; justify-content:flex-end; align-items:center; padding:0 32px; z-index:2;">
+    <a href="#" style="color:#fff; margin:0 18px; font-weight:500; text-decoration:none;">ProScheduler</a>
+    <a href="#" style="color:#fff; margin:0 18px; font-weight:500; text-decoration:none;">TimePlanner</a>
+    <a href="#" style="color:#fff; margin:0 18px; font-weight:500; text-decoration:none;">Pricing</a>
+    <a href="#" style="color:#fff; margin:0 18px; font-weight:500; text-decoration:none;">Blog</a>
+    <a href="#" style="color:#fff; margin:0 18px; font-weight:500; text-decoration:none;">About Us</a>
+    <a href="#" style="color:#fff; margin:0 18px; font-weight:500; text-decoration:none;">Contact</a>
+    <a href="#" style="background:#ffb300; color:#fff; font-weight:600; padding:10px 28px; border-radius:24px; text-decoration:none; margin-left:18px; box-shadow:0 2px 8px rgba(0,0,0,0.08); display:flex; align-items:center;">
+      Try Now
+      <span style="margin-left:10px; font-size:1.2em;">&#8594;</span>
+    </a>
+  </nav>
+  <div class="responsive-section responsive-flex" style="align-items:center; justify-content:space-between; flex-wrap:wrap; padding: 0 32px;">
+    <!-- Left Content -->
+    <div style="max-width: 540px;">
+      <div style="display:flex; align-items:center; margin-bottom:32px;">
+        <div style="width:32px; height:4px; background:#ffb300; border-radius:2px; margin-right:10px;"></div>
+        <span style="font-size: 1.6rem; font-weight: 700; letter-spacing: 1px;">TEAM BOARD</span>
+      </div>
+      <h1 style="font-size:2.6rem; font-weight:700; margin-bottom:10px; line-height:1.2;">
+        <span style="color:#fff;">Resource</span> Planning<br>
+        &amp; Project Management<br>
+        <span style="color:#fff;">for Jira</span>
+      </h1>
+      <p style="font-size:1.1rem; margin-bottom:32px; color:#e0e6f6;">
+        Task planning, time tracking, and reports for project and program.
+      </p>
+      <div class="responsive-btns">
+        <a href="#" style="background:#ffb300; color:#fff; font-weight:600; padding:12px 28px; border-radius:24px; text-decoration:none; margin-right:16px; box-shadow:0 2px 8px rgba(0,0,0,0.08); transition:background 0.2s;">Procheduler</a>
+        <a href="#" style="background:#fff; color:#0a57e3; font-weight:600; padding:12px 28px; border-radius:24px; text-decoration:none; box-shadow:0 2px 8px rgba(0,0,0,0.08); transition:background 0.2s;">Time Planner</a>
+      </div>
+    </div>
+    <!-- Right Image -->
+    <div style="flex:1; min-width:320px; display:flex; justify-content:center; align-items:center; margin-top:24px; position:relative;">
+      <img src="./Group 1080.png" alt="Team Board Screenshot" style="max-width:370px; width:100%; border-radius:12px; border:4px; position:relative; z-index:1;">
+      <img src="./Mask group (2).png" alt="Small Screenshot" style="width:200px; border-radius:20px; box-shadow:0 4px 16px rgba(0,0,0,0.12); border:2px solid #fff; position:absolute; right:-1px; bottom:-1px; background:#fff; z-index:2;">
+    </div>
+  </div>
+</section>
+<!-- Hero Section End -->
+
+<!-- Resource Management Section Start -->
+<section style="background: #f5f9ff; padding: 60px 0 60px 0; border-radius: 8px; margin-top: 40px;">
+  <div class="responsive-section responsive-flex" style="align-items:center; justify-content:space-between; flex-wrap:wrap; padding: 0 32px;">
+    <!-- Left Content -->
+    <div style="flex:1; min-width:320px; max-width:500px;">
+      <h2 style="font-size:2rem; font-weight:600; margin-bottom:18px; color:#222;">
+        An Innovative Resource<br>
+        Management Solution for Jira
+      </h2>
+      <p style="font-size:1.08rem; color:#444; margin-bottom:32px;">
+        Use TeamBoard to creates, assigns, and track the activity for all your team members. It gives an inclusive picture of the team members, their tasks along with logged and scheduled time for each issue for reporting.
+      </p>
+      <div class="responsive-btns">
+        <a href="#" style="background:#ffb300; color:#fff; font-weight:600; padding:12px 32px; border-radius:24px; text-decoration:none; margin-right:16px; box-shadow:0 2px 8px rgba(0,0,0,0.08); font-size:1rem;">Try Now</a>
+        <a href="#" style="background:#2563eb; color:#fff; font-weight:600; padding:12px 32px; border-radius:24px; text-decoration:none; box-shadow:0 2px 8px rgba(0,0,0,0.08); font-size:1rem;">Read More</a>
+      </div>
+    </div>
+    <!-- Right Image -->
+    <div style="flex:1; min-width:320px; display:flex; justify-content:center; align-items:center; position:relative;">
+      <img src="./461-4618460_your-browser-does-not-support-the-video-tag 1.png" alt="Laptop Screenshot" style="max-width:420px; width:100%; border-radius:16px; position:relative; z-index:1;">
+      <img src="./Group 1080.png" alt="App Screenshot" style="
+        position:absolute;
+        left:50%;
+        top:38.5%;
+        transform:translate(-50%,-50%);
+        width:67%;
+        height:54%;
+        object-fit:cover;
+        border-radius:8px;
+        box-shadow:0 2px 8px rgba(0,0,0,0.10);
+        z-index:2;
+      ">
+    </div>
+  </div>
+</section>
+<!-- Resource Management Section End -->
+
+<!-- Gantt Chart Section Start -->
+<section style="background: #eaf4fe; padding: 48px 0 48px 0; border-radius: 8px; margin-top: 40px;">
+  <div class="responsive-section responsive-flex" style="align-items:center; justify-content:space-between; flex-wrap:wrap; padding: 0 32px;">
+    <!-- Left Image -->
+    <div style="flex:1; min-width:320px; display:flex; justify-content:center; align-items:center;">
+      <div style="background:#fff; border-radius:18px; box-shadow:0 8px 32px rgba(0,0,0,0.10);  padding:8px;">
+        <img src="./Group 1111.png" alt="Gantt Chart Tablet" style="max-width:340px; width:100%; border-radius:14px; display:block;">
+      </div>
+    </div>
+    <!-- Right Content -->
+    <div style="flex:1; min-width:320px; max-width:500px; margin-left:40px;">
+      <h2 style="font-size:1.7rem; font-weight:600; margin-bottom:16px; color:#222;">
+        Gantt chart, Timeline for Jira
+      </h2>
+      <p style="font-size:1.08rem; color:#444; margin-bottom:12px;">
+        Interactive online Gantt chart for planning and managing multiple Jira projects at once.
+      </p>
+      <p style="font-size:1.08rem; color:#444; margin-bottom:32px;">
+        No more Excel or Spreadsheet, manage and edit Jira issues quickly in the Tabular List view
+      </p>
+      <a href="#" style="background:#ffb300; color:#fff; font-weight:600; padding:12px 32px; border-radius:24px; text-decoration:none; box-shadow:0 2px 8px rgba(0,0,0,0.08); font-size:1rem;">Try Now</a>
+    </div>
+  </div>
+</section>
+<!-- Gantt Chart Section End -->
+
+<!-- Program & Portfolio Management Section Start -->
+<section style="background: #eaf4fe; padding: 48px 0 48px 0; border-radius: 8px; margin-top: 40px;">
+  <div class="responsive-section responsive-flex" style="align-items:center; justify-content:space-between; flex-wrap:wrap; padding: 0 32px;">
+    <!-- Left Content -->
+    <div style="flex:1; min-width:320px; max-width:500px;">
+      <h2 style="font-size:1.7rem; font-weight:600; margin-bottom:16px; color:#222;">
+        Enable Program &amp; Porfolio Management
+      </h2>
+      <p style="font-size:1.08rem; color:#444; margin-bottom:32px;">
+        Program help you manage and plan multiple projects in one view. Managers can see and manage the resources at the wide range.
+      </p>
+      <a href="#" style="background:#ffb300; color:#fff; font-weight:600; padding:12px 32px; border-radius:24px; text-decoration:none; box-shadow:0 2px 8px rgba(0,0,0,0.08); font-size:1rem;">Try Now</a>
+    </div>
+    <!-- Right Image -->
+    <div style="flex:1; min-width:320px; display:flex; justify-content:center; align-items:center;">
+      <div style="background:#fff; border-radius:16px; box-shadow:0 8px 32px rgba(0,0,0,0.10); padding:8px;">
+        <img src="./Mask group (3).png" alt="Program Management Screenshot" style="max-width:370px; width:100%; border-radius:12px; display:block;">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Program & Portfolio Management Section End -->
+
+<!-- Time Tracking, Reports, Leave Section Start -->
+<section style="background: #eaf4fe; padding: 60px 0; border-radius: 12px; margin-top: 40px;">
+  <div class="responsive-section">
+    <!-- Row 1 -->
+    <div class="responsive-flex" style="margin-bottom:48px;">
+      <!-- Left: Laptop Image with screen inside -->
+      <div style="flex:1; min-width:320px; display:flex; justify-content:center; position:relative;">
+        <img src="./461-4618460_your-browser-does-not-support-the-video-tag 1.png" alt="Timesheet Laptop" style="max-width:340px; width:100%; border-radius:14px; box-shadow:0 8px 32px rgba(0,0,0,0.10); background:#fff; position:relative; z-index:1;">
+        <img src="./Group 1111.png" alt="Timesheet Screenshot" style="
+          position:absolute;
+          left:50%;
+          top:38.5%;
+          transform:translate(-50%,-50%);
+          width:67%;
+          height:54%;
+          object-fit:cover;
+          border-radius:8px;
+          z-index:2;
+        ">
+      </div>
+      <!-- Right: Content -->
+      <div style="flex:1; min-width:320px; max-width:500px; margin-left:40px;">
+        <h2 style="font-size:1.5rem; font-weight:600; margin-bottom:12px; color:#222;">Time Tracking, Timesheets for Jira</h2>
+        <p style="font-size:1.08rem; color:#444; margin-bottom:24px;">
+          Get your team involved with Timelogs. Measuring the actual time reported via time logs versus the forecasted time via the resource scheduler gives you valuable insight into your teams performance.
+        </p>
+        <div class="responsive-btns">
+          <a href="#" style="background:#ffb300; color:#fff; font-weight:600; padding:12px 28px; border-radius:24px; text-decoration:none; margin-right:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08); font-size:1rem;">Try Now</a>
+          <a href="#" style="background:#2563eb; color:#fff; font-weight:600; padding:12px 28px; border-radius:24px; text-decoration:none; box-shadow:0 2px 8px rgba(0,0,0,0.08); font-size:1rem;">Read More</a>
+        </div>
+      </div>
+    </div>
+    <!-- Row 2 -->
+    <div class="responsive-flex" style="margin-bottom:48px;">
+      <!-- Left: Content -->
+      <div style="flex:1; min-width:320px; max-width:500px;">
+        <h2 style="font-size:1.5rem; font-weight:600; margin-bottom:12px; color:#222;">Rich Reports</h2>
+        <p style="font-size:1.08rem; color:#444; margin-bottom:24px;">
+          Simplified tedious time tracking task. Resize the task to log time. Timelog and reports for project, program and individual.
+        </p>
+        <a href="#" style="background:#ffb300; color:#fff; font-weight:600; padding:12px 28px; border-radius:24px; text-decoration:none; box-shadow:0 2px 8px rgba(0,0,0,0.08); font-size:1rem;">Try Now</a>
+      </div>
+      <!-- Right: Tablet Image -->
+      <div style="flex:1; min-width:320px; display:flex; justify-content:center;">
+        <img src="./Group 1112.png" alt="Tablet Report" style="max-width:340px; width:100%; border-radius:14px; box-shadow:0 8px 32px rgba(0,0,0,0.10); background:#fff;">
+      </div>
+    </div>
+    <!-- Row 3 -->
+    <div class="responsive-flex">
+      <!-- Left: Image -->
+      <div style="flex:1; min-width:320px; display:flex; justify-content:center;">
+        <img src="./Mask group (4).png" alt="Leave Table" style="max-width:340px; width:100%; border-radius:14px; box-shadow:0 8px 32px rgba(0,0,0,0.10); background:#fff;">
+      </div>
+      <!-- Right: Content -->
+      <div style="flex:1; min-width:320px; max-width:500px; margin-left:40px;">
+        <h2 style="font-size:1.5rem; font-weight:600; margin-bottom:12px; color:#222;">Vacation &amp; Leave Request workflow in Jira</h2>
+        <p style="font-size:1.08rem; color:#444; margin-bottom:24px;">
+          Allow your team to transparently schedule and request time off directly from the scheduler or request forms with the Vacation &amp; Annual Leave requesting functionality.
+        </p>
+        <div class="responsive-btns">
+          <a href="#" style="background:#ffb300; color:#fff; font-weight:600; padding:12px 28px; border-radius:24px; text-decoration:none; margin-right:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08); font-size:1rem;">Try Now</a>
+          <a href="#" style="background:#2563eb; color:#fff; font-weight:600; padding:12px 28px; border-radius:24px; text-decoration:none; box-shadow:0 2px 8px rgba(0,0,0,0.08); font-size:1rem;">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Time Tracking, Reports, Leave Section End -->
+
+<!-- Mobile App Section Start -->
+<section style="background: #eaf4fe; padding: 60px 0 40px 0; border-radius: 12px; margin-top: 40px;">
+  <div class="responsive-section responsive-flex" style="align-items:center; justify-content:space-between; flex-wrap:wrap; padding: 0 32px;">
+    <!-- Left Content -->
+    <div style="flex:1; min-width:320px; max-width:420px;">
+      <h2 style="font-size:1.5rem; font-weight:600; margin-bottom:16px; color:#222;">Mobile App</h2>
+      <p style="font-size:1.08rem; color:#444; margin-bottom:32px;">
+        Work quickly and effectively anywhere with iOS and Android apps.
+      </p>
+      <div class="responsive-btns">
+        <a href="#" style="background:#ffb300; color:#fff; font-weight:600; padding:12px 28px; border-radius:24px; text-decoration:none; margin-right:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08); font-size:1rem;">Try Now</a>
+        <a href="#" style="background:#2563eb; color:#fff; font-weight:600; padding:12px 28px; border-radius:24px; text-decoration:none; box-shadow:0 2px 8px rgba(0,0,0,0.08); font-size:1rem;">Read More</a>
+      </div>
+    </div>
+    <!-- Right Image -->
+    <div style="flex:1; min-width:320px; display:flex; justify-content:center; align-items:center;">
+      <img src="./Group 1115.png" alt="Mobile App Screenshot" style="max-width:320px; width:100%; display:block;">
+    </div>
+  </div>
+</section>
+<!-- Mobile App Section End -->
+
+<!-- Call To Action Section Start -->
+<section style="background: linear-gradient(180deg, #0a57e3 0%, #2563eb 100%); color:#fff; padding: 60px 0 60px 0; border-radius: 0 0 24px 24px; margin-top:0;">
+  <div class="responsive-section responsive-flex" style="align-items:center; justify-content:space-between; flex-wrap:wrap; padding: 0 32px;">
+    <!-- Left Illustration -->
+    <div style="flex:1; min-width:320px; display:flex; align-items:center;">
+      <img src="./Frame (9).png" alt="Calendar Illustration" class="cta-illustration" style="max-width:260px; width:100%; display:block;">
+    </div>
+    <!-- Right Content -->
+    <div style="flex:2; min-width:320px; padding-left:40px;">
+      <h2 style="font-size:2rem; font-weight:700; margin-bottom:24px; color:#fff;">
+        Try TeamBoard ProScheduler for Jira NOW!
+      </h2>
+      <div class="responsive-btns" style="margin-bottom:24px;">
+        <a href="#" style="background:#ffb300; color:#fff; font-weight:600; padding:12px 28px; border-radius:24px; text-decoration:none; margin-right:12px; font-size:1rem;">Jira Cloud</a>
+        <a href="#" style="background:#ffffff; color:#0066ff; font-weight:600; padding:12px 28px; border-radius:24px; text-decoration:none; margin-right:12px; font-size:1rem;">Jira Server</a>
+        <a href="#" style="background:#ffb300; color:#fff; font-weight:600; padding:12px 28px; border-radius:24px; text-decoration:none; font-size:1rem;">Jira Data Center</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Call To Action Section End -->
+
+<!-- TimePlanners CTA Section Start -->
+<section style="background: #fff; padding: 56px 0 32px 0; text-align:center;">
+  <div class="responsive-section" style="position:relative;">
+    <!-- Speech bubbles left -->
+    <img src="./bubble-left.png" alt="" class="bubble-img" style="position:absolute; left:0; top:0; max-width:180px; width:18vw; z-index:1;">
+    <!-- Speech bubbles right -->
+    <img src="./bubble-right.png" alt="" class="bubble-img" style="position:absolute; right:0; top:0; max-width:180px; width:18vw; z-index:1;">
+    <h2 style="font-size:2rem; font-weight:600; margin-bottom:32px; color:#222; position:relative; z-index:2;">
+      Try TeamBoard TimePlanners for Jira NOW!
+    </h2>
+    <div class="responsive-btns" style="margin-bottom:32px; position:relative; z-index:2;">
+      <a href="#" style="background:#ffb300; color:#fff; font-weight:600; padding:12px 28px; border-radius:24px; text-decoration:none; margin:0 8px; font-size:1rem;">Jira Cloud</a>
+      <a href="#" style="background:#2563eb; color:#fff; font-weight:600; padding:12px 28px; border-radius:24px; text-decoration:none; margin:0 8px; font-size:1rem;">Jira Server</a>
+      <a href="#" style="background:#ffb300; color:#fff; font-weight:600; padding:12px 28px; border-radius:24px; text-decoration:none; margin:0 8px; font-size:1rem;">Jira Data Center</a>
+    </div>
+  </div>
+</section>
+<!-- TimePlanners CTA Section End -->
+
+<!-- Blog Posts Section Start -->
+<section style="background: #eaf4fe; padding: 48px 0 64px 0;">
+  <div class="responsive-section" style="text-align:center;">
+    <h2 style="font-size:2rem; font-weight:600; margin-bottom:40px; color:#222;">Blog Posts</h2>
+    <div class="blog-cards">
+      <!-- Blog Card 1 -->
+      <div style="background:#fff; border-radius:14px; box-shadow:0 4px 16px rgba(0,0,0,0.10); width:320px; padding-bottom:18px; position:relative;">
+        <img src="./Object.png" alt="Work Life Balance" style="width:100%; border-radius:14px 14px 0 0;">
+        <div style="padding:18px 16px 0 16px; text-align:left;">
+          <div style="font-size:1.08rem; font-weight:500; margin-bottom:8px; color:#222;">How to Improve Work life Balance: Significance of Time Management</div>
+          <a href="#" style="color:#ffb300; font-weight:600; text-decoration:none;">LEARN MORE</a>
+        </div>
+        <!-- Left Arrow -->
+        <button class="blog-arrow" style="position:absolute; left:-24px; top:50%; transform:translateY(-50%); background:#fff; border:none; border-radius:50%; box-shadow:0 2px 8px rgba(0,0,0,0.10); width:36px; height:36px; font-size:1.4rem; cursor:pointer;">&#8592;</button>
+      </div>
+      <!-- Blog Card 2 -->
+      <div style="background:#fff; border-radius:14px; box-shadow:0 4px 16px rgba(0,0,0,0.10); width:320px; padding-bottom:18px;">
+        <img src="./Object (1).png" alt="Employee Engagement" style="width:100%; border-radius:14px 14px 0 0;">
+        <div style="padding:18px 16px 0 16px; text-align:left;">
+          <div style="font-size:1.08rem; font-weight:500; margin-bottom:8px; color:#222;">11 Top Employee Engagement Strategies for Guaranteed Results</div>
+          <a href="#" style="color:#ffb300; font-weight:600; text-decoration:none;">LEARN MORE</a>
+        </div>
+      </div>
+      <!-- Blog Card 3 -->
+      <div style="background:#fff; border-radius:14px; box-shadow:0 4px 16px rgba(0,0,0,0.10); width:320px; padding-bottom:18px; position:relative;">
+        <img src="./Object (2).png" alt="Project Management Principles" style="width:100%; border-radius:14px 14px 0 0;">
+        <div style="padding:18px 16px 0 16px; text-align:left;">
+          <div style="font-size:1.08rem; font-weight:500; margin-bottom:8px; color:#222;">Project Management Principles and Best Practices for Team Building</div>
+          <a href="#" style="color:#ffb300; font-weight:600; text-decoration:none;">LEARN MORE</a>
+        </div>
+        <!-- Right Arrow -->
+        <button class="blog-arrow" style="position:absolute; right:-24px; top:50%; transform:translateY(-50%); background:#fff; border:none; border-radius:50%; box-shadow:0 2px 8px rgba(0,0,0,0.10); width:36px; height:36px; font-size:1.4rem; cursor:pointer;">&#8594;</button>
+      </div>
+    </div>
+    <a href="#" style="background:#2563eb; color:#fff; font-weight:600; padding:12px 36px; border-radius:24px; text-decoration:none; font-size:1rem;">View All</a>
+  </div>
+</section>
+<!-- Blog Posts Section End -->
+
+<!-- Footer Start -->
+<footer style="background: linear-gradient(135deg, #0a57e3 0%, #2563eb 100%); color:#fff; padding:48px 0 0 0; font-family:'Segoe UI', Arial, sans-serif; margin-top:0;">
+  <div class="footer-flex" style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; padding:0 32px;">
+    <!-- Logo & About -->
+    <div style="flex:1; min-width:260px; margin-bottom:32px;">
+      <div style="display:flex; align-items:center; margin-bottom:18px;">
+        <div style="width:32px; height:6px; background:#ffb300; border-radius:3px; margin-right:8px;"></div>
+        <span style="font-size:2rem; font-weight:700; letter-spacing:1px;">TEAM BOARD</span>
+      </div>
+      <p style="color:#e0e6f6; font-size:1rem; max-width:340px;">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.
+      </p>
+    </div>
+    <!-- Menu -->
+    <div style="flex:1; min-width:200px; margin-bottom:32px;">
+      <h4 style="font-size:1.1rem; font-weight:600; margin-bottom:18px;">Menu</h4>
+      <ul style="list-style:none; padding:0; margin:0; color:#e0e6f6;">
+        <li style="margin-bottom:8px;"><span style="margin-right:6px;">&#9654;</span> ProScheduler Docs</li>
+        <li style="margin-bottom:8px;"><span style="margin-right:6px;">&#9654;</span> TimePlanner Docs</li>
+        <li style="margin-bottom:8px;"><span style="margin-right:6px;">&#9654;</span> Create a Ticket</li>
+        <li style="margin-bottom:8px;"><span style="margin-right:6px;">&#9654;</span> User Story Map for Jira</li>
+        <li style="margin-bottom:8px;"><span style="margin-right:6px;">&#9654;</span> Mecky</li>
+        <li style="margin-bottom:8px;"><span style="margin-right:6px;">&#9654;</span> Leanboard</li>
+        <li style="margin-bottom:8px;"><span style="margin-right:6px;">&#9654;</span> About Us</li>
+        <li style="margin-bottom:8px;"><span style="margin-right:6px;">&#9654;</span> Company</li>
+        <li><span style="margin-right:6px;">&#9654;</span> Contact Us</li>
+      </ul>
+    </div>
+    <!-- Find Us -->
+    <div style="flex:1; min-width:240px; margin-bottom:32px;">
+      <h4 style="font-size:1.1rem; font-weight:600; margin-bottom:18px;">Find Us</h4>
+      <div style="margin-bottom:10px;">
+        <span style="margin-right:8px;">&#9993;</span> atlassian@devsamurai.com
+      </div>
+      <div style="margin-bottom:10px;">
+        <span style="margin-right:8px;">&#128222;</span> +81 50 362 78910
+      </div>
+      <div style="margin-bottom:10px;">
+        <span style="margin-right:8px;">&#127970;</span> DevSamurai, Inc.<br>
+        4F Shiroyama Trust Tower<br>
+        Toranomon 4-3-1, Minato City<br>
+        Tokyo, 105-6004 Japan
+      </div>
+    </div>
+  </div>
+  <div style="border-top:1px solid #3386e6; margin-top:32px; padding:18px 0 12px 0; text-align:center; color:#e0e6f6; font-size:1rem;">
+    © 2022. Copyright. Grass Center
+    <span style="float:right; margin-right:32px;">
+      <a href="#" style="color:#fff; margin:0 8px; text-decoration:none; font-size:1.2rem;">&#xf099;</a>
+      <a href="#" style="color:#fff; margin:0 8px; text-decoration:none; font-size:1.2rem;">&#xf16d;</a>
+      <a href="#" style="color:#fff; margin:0 8px; text-decoration:none; font-size:1.2rem;">&#xf0e1;</a>
+      <a href="#" style="color:#fff; margin:0 8px; text-decoration:none; font-size:1.2rem;">&#xf231;</a>
+    </span>
+  </div>
+</footer>
+<!-- Footer End -->
+</body>
+</html>
